@@ -1,0 +1,6 @@
+<mat-card class="card" *ngFor="let todo of todos">
+  <mat-checkbox [value]="todo.checked">{{todo.name}}</mat-checkbox>
+  <button class="card__trash-bin" mat-button>
+    <i class="material-icons">delete</i>
+  </button>
+</mat-card>

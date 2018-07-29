@@ -1,0 +1,9 @@
+.card {
+  margin: auto;
+  margin-bottom: 25px;
+  width: 500px;
+}
+
+.card__trash-bin {
+  float: right;
+}
