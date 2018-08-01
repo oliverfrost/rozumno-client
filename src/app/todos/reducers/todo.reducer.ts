@@ -1,12 +1,14 @@
-import {ToDo} from './todo';
-import {ToDoActionsUnion, TodoActionTypes} from './todo.actions';
+import {ToDo} from '../models/todo';
+import {ToDoActionsUnion, TodoActionTypes} from '../actions/todo.actions';
 import {createEntityAdapter, EntityAdapter, EntityState} from '@ngrx/entity';
 
 export interface State extends EntityState<ToDo> {
   todos: ToDo[];
 }
 
-export const adapter: EntityAdapter<ToDo> = createEntityAdapter<ToDo>({});
+export const adapter: EntityAdapter<ToDo> = createEntityAdapter<ToDo>({
+    // something here
+});
 
 export const initialState: State = adapter.getInitialState({
   todos: []

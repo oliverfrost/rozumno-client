@@ -1,13 +1,14 @@
 import {Component} from '@angular/core';
-import {ToDo} from './todo';
+import {ToDo} from '../../models/todo';
 
 
 @Component({
-  selector: 'app-to-dos',
-  templateUrl: 'todo.component.html',
-  styleUrls: ['todo.component.css']
+  selector: 'app-to-do-list',
+  template: `
+    <app-to-do-item *ngFor="let todo of todos" [todo]="todo"></app-to-do-item>
+  `
 })
-export class ToDosComponent {
+export class ToDoListComponent {
   public todos: ToDo[] = [
     {
       name: 'Buy Milk',
@@ -22,5 +23,4 @@ export class ToDosComponent {
       checked: false
     },
   ];
-
 }

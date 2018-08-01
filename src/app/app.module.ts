@@ -2,27 +2,29 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing.module';
+// import {AppRoutingModule} from './app-routing.module';
 import {BooksComponent} from './books/books.component';
-import {ToDosComponent} from './todos/todo.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatButtonModule} from '@angular/material/button';
+
+import { StoreModule } from '@ngrx/store';
+import {reducer as ToDoReducer} from './todos/reducers/todo.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {ToDoService} from './core/todo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
-    ToDosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    MatCardModule,
-    MatCheckboxModule,
-    MatButtonModule
+    StoreModule.forRoot(ToDoReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
-  providers: [],
+  providers: [
+    ToDoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
